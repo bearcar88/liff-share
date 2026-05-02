@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>熊噗噗分享</title>
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+</head>
+<body>
+
+<h2>點擊分享給朋友👇</h2>
+
+<button onclick="share()">👉 分享LINE好友</button>
+
+<script>
+async function share() {
+  await liff.init({ liffId: "2009949774-GG5bqHBi" });
+
+  if (liff.isApiAvailable('shareTargetPicker')) {
+    await liff.shareTargetPicker([
+      {
+        type: 'text',
+        text: '🚗 熊噗噗車隊\n\n加入好友拿優惠👉 https://lin.ee/WRKRiFx'
+      }
+    ]);
+  } else {
+    alert('請用LINE開啟才能分享');
+  }
+}
+</script>
+
+</body>
+</html>
