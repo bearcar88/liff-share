@@ -9,12 +9,16 @@
 
 <body style="text-align:center; padding:40px; font-family:sans-serif;">
 
-  <h2 style="font-size:32px;">
-    🎁 分享給朋友拿優惠
+  <h2 style="font-size:30px;">
+    🎁 正在開啟分享好友...
   </h2>
 
+  <p style="font-size:20px;">
+    若沒有自動跳出，請點下方按鈕
+  </p>
+
   <button onclick="share()" style="
-    margin-top:40px;
+    margin-top:30px;
     font-size:26px;
     padding:20px 30px;
     background:#06C755;
@@ -28,20 +32,32 @@
 <script>
 async function share() {
   try {
-    await liff.init({ liffId: "2009949774-IQdl1D1q" });
-
     await liff.shareTargetPicker([
       {
         type: "text",
         text: "🚗 熊噗噗安心車隊\n🎁 加好友立即領優惠！\n👉 https://lin.ee/WRKRiFx"
       }
     ]);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function main() {
+  try {
+    await liff.init({ liffId: "2009949774-IQdl1D1q" });
+
+    setTimeout(function() {
+      share();
+    }, 800);
 
   } catch (error) {
     console.log(error);
-    alert("請從LINE內開啟再分享");
+    alert("請從 LINE 內開啟再分享");
   }
 }
+
+main();
 </script>
 
 </body>
