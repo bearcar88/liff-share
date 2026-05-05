@@ -7,34 +7,20 @@
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 </head>
 
-<body style="font-family: Arial, sans-serif; text-align:center; padding:40px 20px; background:#ffffff;">
+<body style="text-align:center; padding:40px; font-family:sans-serif;">
 
-  <h1 style="font-size:36px; margin-top:40px;">
+  <h2 style="font-size:32px;">
     🎁 分享給朋友拿優惠
-  </h1>
-
-  <div style="
-    margin-top:30px;
-    padding:25px;
-    border-radius:20px;
-    background:#f5f5f5;
-    font-size:24px;
-    line-height:1.6;
-  ">
-    🚗 熊噗噗安心車隊<br>
-    🎁 加好友立即領優惠！<br><br>
-    👉 https://lin.ee/WRKRiFx
-  </div>
+  </h2>
 
   <button onclick="share()" style="
-    font-size:28px;
-    padding:22px 35px;
-    border-radius:18px;
+    margin-top:40px;
+    font-size:26px;
+    padding:20px 30px;
     background:#06C755;
     color:white;
     border:none;
-    font-weight:bold;
-    margin-top:40px;
+    border-radius:15px;
   ">
     👉 分享 LINE 好友
   </button>
@@ -44,18 +30,16 @@ async function share() {
   try {
     await liff.init({ liffId: "2009949774-IQdl1D1q" });
 
-    if (liff.isApiAvailable('shareTargetPicker')) {
-      await liff.shareTargetPicker([
-        {
-          type: "text",
-          text: "🚗 熊噗噗安心車隊\n🎁 加好友立即領優惠！\n👉 https://lin.ee/WRKRiFx"
-        }
-      ]);
-    } else {
-      alert("請從 LINE 裡開啟再分享");
-    }
+    await liff.shareTargetPicker([
+      {
+        type: "text",
+        text: "🚗 熊噗噗安心車隊\n🎁 加好友立即領優惠！\n👉 https://lin.ee/WRKRiFx"
+      }
+    ]);
+
   } catch (error) {
-    alert("分享失敗，請重新開啟頁面");
+    console.log(error);
+    alert("請從LINE內開啟再分享");
   }
 }
 </script>
