@@ -5,12 +5,24 @@
   <title>熊噗噗分享</title>
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 </head>
-<body>
+<body style="text-align:center; font-family: Arial;">
 
-<h2>點擊分享給朋友👇</h2>
+<h2 style="font-size:28px; margin-top:40px;">
+🎁 分享給朋友拿優惠
+</h2>
 
-<button onclick="share()">👉 分享LINE好友</button>
-
+<button onclick="share()" 
+style="
+font-size:22px;
+padding:15px 25px;
+border-radius:10px;
+background-color:#06C755;
+color:white;
+border:none;
+margin-top:20px;
+">
+👉 分享LINE好友
+</button>
 <script>
 async function share() {
   await liff.init({ liffId: "2009949774-IQdl1D1q" });
